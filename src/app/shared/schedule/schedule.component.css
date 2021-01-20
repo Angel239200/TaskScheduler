@@ -1,5 +1,5 @@
 .select-days{
-    display: inline-block;
+  display: inline-block;
   overflow: hidden;
 }
 .select-days select {
@@ -17,9 +17,6 @@
     margin: 3px;
     font-size: 25px;
     border: solid gray 3px;
-}
-.circle{
-    background-color:lightgray;
 }
 .any-time-within{
   margin:0px 10px 0px 3px;

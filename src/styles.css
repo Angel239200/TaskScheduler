@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 .navigation-buttons-container{
-    padding: 10px;
-    margin: 10px;
-  }
-  .navigation-button{
-    display: inline;
-    width: 300px;
-    margin: 5px;
-  }
+  padding: 10px;
+  margin: 10px;
+}
+.navigation-button{
+  display: inline;
+  width: 300px;
+  margin: 5px;
+}

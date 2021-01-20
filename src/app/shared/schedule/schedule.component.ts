@@ -33,11 +33,11 @@ export class ScheduleComponent implements OnInit {
   public isCustomType: boolean;
   
   public repeatTimesTypes: string[] = ["Day", "Week", "Month"];
-  public weekDays = ["M", "T", "W", "T", "F", "S", "S"];
+  public weekDays = ["M", "T", "W", "Th", "F", "S", "Su"];
   public anyTimeWithinChecked: boolean = false;
 
   ngOnInit(): void {
-    this._selectedTypeName = this.selectedType.name;
+    this._selectedTypeName = this.selectedType.name;    
   }
 
   onScheduleSave() {
@@ -48,7 +48,7 @@ export class ScheduleComponent implements OnInit {
       dateTime: this.dateTime,
       repeatType: this.selectedType
     }
-
+    
     this.getSchedule.emit(schedule);
   }
 }

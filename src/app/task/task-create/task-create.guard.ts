@@ -23,5 +23,4 @@ export class TaskCreateGuard implements CanActivate {
 
     return true;
   }
-
 }

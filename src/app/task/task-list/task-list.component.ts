@@ -15,5 +15,4 @@ export class TaskListComponent implements OnInit {
   ngOnInit(): void {
     this.tasks = JSON.parse(localStorage.getItem('tasks'));
   }
-
 }
