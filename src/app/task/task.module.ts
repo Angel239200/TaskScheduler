@@ -12,10 +12,10 @@ import { TaskConfigureFieldsComponent } from './task-configure-fields/task-confi
     TaskCreateComponent,
     TaskListComponent,
     TaskChooseTypeComponent,
-    TaskConfigureFieldsComponent,
-    RouterModule
+    TaskConfigureFieldsComponent
   ],
   imports: [
+    RouterModule,
     SharedModule,
     TaskRoutingModule
   ]

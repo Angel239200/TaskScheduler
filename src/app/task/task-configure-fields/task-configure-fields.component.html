@@ -18,5 +18,6 @@
 <div class="navigation-buttons-container">
     <a class="btn btn-primary navigation-button"
         [routerLink]="['/task/create',task.typeIndex,task.subTypeIndex]">Back</a>
-    <a class="btn btn-primary navigation-button" (click)="saveTask()">Save</a>
+    <a class="btn btn-primary navigation-button" (click)="saveTask()" 
+    [routerLink]="['/tasks']">Save</a>
 </div>

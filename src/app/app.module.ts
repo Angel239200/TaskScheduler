@@ -9,19 +9,15 @@ import { TaskRoutingModule } from './routing/task-routing.module';
 import { TaskChooseTypeComponent } from './task/task-choose-type/task-choose-type.component';
 import { TaskConfigureFieldsComponent } from './task/task-configure-fields/task-configure-fields.component';
 import { TaskListComponent } from './task/task-list/task-list.component';
+import { TaskModule } from './task/task.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TaskCreateComponent,
-    TaskChooseTypeComponent,
-    TaskConfigureFieldsComponent,
-    TaskListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    SharedModule,
-    TaskRoutingModule,
+    TaskModule,
     AppRoutingModule
   ],
   providers: [],

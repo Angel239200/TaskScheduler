@@ -18,15 +18,15 @@ import { TaskConfigureFieldsGuard } from '../task/task-configure-fields/task-con
       {
         path: 'task/create/:type/:subtype',
         component: TaskCreateComponent,
-        canActivate: [ TaskCreateGuard ]
+        canActivate: [TaskCreateGuard]
       },
       {
         path: 'task/create/:taskId',
         component: TaskConfigureFieldsComponent,
-        canActivate: [ TaskConfigureFieldsGuard ]
+        canActivate: [TaskConfigureFieldsGuard]
       }
     ])
   ],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
 export class TaskRoutingModule { }
