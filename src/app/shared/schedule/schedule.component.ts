@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnChanges, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { ISchedule } from 'src/app/task/task';
 import repeatTypes, { IRepeatType } from '../repeatTypes';
 
