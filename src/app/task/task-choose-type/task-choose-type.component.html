@@ -1,0 +1,21 @@
+<div class="task-choose-type">
+    <div class="col-md-4">
+        <input type="text" [(ngModel)]="subTypeFilter" placeholder="Search">
+    </div>
+    <div class="col-md-10">
+        <div class="type col-md-3" *ngFor="let type of filteredTypes" (click)='selectType(type)'>
+            {{ type.name }}
+        </div>
+        <div class="sub-types-container col-md-12" *ngIf="selectedType">
+            <div class="sub-type col-md-3" *ngFor="let subType of selectedType.subTypes"
+                (click)='selectSubType(subType)'>
+                {{ subType.name }}
+            </div>
+        </div>
+    </div>
+    <div class="navigation-buttons-container">
+        <a class="btn btn-primary navigation-button" [routerLink]="['/tasklists']">Back</a>
+        <a class="btn btn-primary navigation-button" [routerLink]="['/task/create',typeIndex,subTypeIndex]"
+            [ngClass]="(typeIndex == null || subTypeIndex == null) ? 'disabled' : '' ">Next</a>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <header>
+        <h3>Schedule a new Job</h3>
+    </header>
+    <div class="content">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" [(ngModel)]="task.name">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="5" [(ngModel)]="task.description"></textarea>
+        </div>
+        <ts-schedule (getSchedule)='setSchedule($event)'></ts-schedule>
+        <div class="navigation-buttons-container">
+            <a class="btn btn-primary navigation-button" [routerLink]="['/task/create']">Back</a>
+            <a class="btn btn-primary navigation-button" [routerLink]="['/task/create',task.id]"
+                [ngClass]="{disabled: !task.schedule}" (focus)="createTask()">Next</a>
+        </div>
+    </div>
+</div>

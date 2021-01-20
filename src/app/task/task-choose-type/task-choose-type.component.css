@@ -1,0 +1,19 @@
+.types-category{
+    display: inline-block;
+}
+.type{
+    display: inline-block;
+    border:solid gray 1px;
+    cursor: pointer;
+}
+.sub-types-container{
+    border:solid gray 1px;
+    padding: 10px;
+}
+.sub-type{
+    display: inline-block;
+    border:solid gray 1px;
+    margin:0px 5px 5px 5px;
+    text-align: center;
+    cursor: pointer;
+}

@@ -1,0 +1,55 @@
+<div class="schedule-container">
+    <header>
+        <h4>Schedule</h4>
+    </header>
+    <div class="schedule-content">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Date and Time</label>
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="date" [(ngModel)]="dateTime.date">
+                        <input type="time" [(ngModel)]="dateTime.time">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Repeat: </label>
+                <select [(ngModel)]="selectedTypeName">
+                    <option *ngFor="let type of repeatTypes" [value]="type.name">
+                        {{ type.name }}
+                    </option>
+                </select>
+            </div>
+            <div class="custom-type" *ngIf="isCustomType">
+                <div class="times">
+                    Repeat Times:
+                    <input type="number" class="col-md-2" min="1" [(ngModel)]="selectedType.repeatTimes">
+                    <select class="repeat-times-type-list" [(ngModel)]="selectedType.repeatTimesType">
+                        <option *ngFor="let type of repeatTimesTypes" [value]="type">
+                            {{ type }}
+                        </option>
+                    </select>
+                </div>
+                <div class="select-days">
+                    <select multiple [(ngModel)]="selectedType.repeatDays">
+                        <option *ngFor="let day of weekDays" [value]="day">
+                            {{ day }}
+                        </option>
+                    </select>
+                </div>
+                <div class="selectTimeRange">
+                    <input type="checkbox" checked [(ngModel)]="anyTimeWithinChecked" id="any-time-within">
+                    <label for="any-time-within" class="any-time-within">Run any within the hours of</label>
+                    <span *ngIf="anyTimeWithinChecked">
+                        <input type="time" [(ngModel)]="selectedType.startWithinTime">
+                        <input type="time" [(ngModel)]="selectedType.endWithinTime">
+                    </span>
+                </div>
+            </div>
+            <div>
+                <button (click)='onScheduleSave()'>Save Schedule</button>
+            </div>
+        </div>
+    </div>
+</div>

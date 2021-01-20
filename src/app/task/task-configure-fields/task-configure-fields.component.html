@@ -1,0 +1,22 @@
+<div class="type-fields">
+    <h3>Task type fields</h3>
+    <div class="type-field" *ngFor="let field of typeFields">
+        {{ field.name }}
+    </div>
+</div>
+<div class="add-field">
+    <h3>Custom fields</h3>
+    <label for="fieldName">Field Name</label>
+    <input type="text" [(ngModel)]="fieldName">
+    <button type="button" class="btn btn-secondary" (click)="addField(fieldName)">Add Field</button>
+</div>
+<div class="added-fields">
+    <div class="field" *ngFor="let field of this.task.fields">
+        {{ field }} <button (click)="removeField(field)">Remove</button>
+    </div>
+</div>
+<div class="navigation-buttons-container">
+    <a class="btn btn-primary navigation-button"
+        [routerLink]="['/task/create',task.typeIndex,task.subTypeIndex]">Back</a>
+    <a class="btn btn-primary navigation-button" (click)="saveTask()">Save</a>
+</div>
