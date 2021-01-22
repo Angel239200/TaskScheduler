@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { TaskRoutingModule } from '../routing/task-routing.module';
+import { TaskRoutingModule } from './task-routing.module';
 
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
-import { TaskListComponent } from './task-list/task-list.component';
-import { TaskCreateComponent } from './task-create/task-create.component';
-import { TaskChooseTypeComponent } from './task-choose-type/task-choose-type.component';
-import { TaskConfigureFieldsComponent } from './task-configure-fields/task-configure-fields.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskCreateComponent } from './components/task-create/task-create.component';
+import { TaskChooseTypeComponent } from './components/task-choose-type/task-choose-type.component';
+import { TaskConfigureFieldsComponent } from './components/task-configure-fields/task-configure-fields.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskChooseTypeComponent } from '../task/task-choose-type/task-choose-type.component';
-import { TaskCreateGuard as TaskCreateGuard } from '../task/task-create/task-create.guard';
-import { TaskCreateComponent } from '../task/task-create/task-create.component';
-import { TaskConfigureFieldsComponent } from '../task/task-configure-fields/task-configure-fields.component';
-import { TaskConfigureFieldsGuard } from '../task/task-configure-fields/task-configure-fields.guard';
-import { TaskListComponent } from '../task/task-list/task-list.component';
+import { TaskChooseTypeComponent } from './components/task-choose-type/task-choose-type.component';
+import { TaskCreateGuard as TaskCreateGuard } from './guards/create/task-create.guard';
+import { TaskCreateComponent } from './components/task-create/task-create.component';
+import { TaskConfigureFieldsComponent } from './components/task-configure-fields/task-configure-fields.component';
+import { TaskConfigureFieldsGuard } from './guards/configure-fields/task-configure-fields.guard';
+import { TaskListComponent } from './components/task-list/task-list.component';
 
 const routes: Routes = [
   { path: 'list', component: TaskListComponent },

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Field, ITask } from '../task';
-import types from '../task-choose-type/task-types';
-import { TaskService } from '../../services/task-service/task.service';
+import { Field, ITask } from '../../models/task.model';
+import types from '../../models/task-types';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   templateUrl: './task-configure-fields.component.html',

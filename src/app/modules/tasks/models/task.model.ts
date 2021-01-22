@@ -1,4 +1,4 @@
-import { ISchedule } from "../shared/schedule/schedule-interfaces";
+import { ISchedule } from "../../../shared/models/schedule-interfaces";
 
 export interface ITask {
     id: number;

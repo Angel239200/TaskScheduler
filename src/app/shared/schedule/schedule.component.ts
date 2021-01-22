@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import repeatTypes, { IRepeatType, ISchedule } from './schedule-interfaces';
+import repeatTypes, { IRepeatType, ISchedule } from '../models/schedule-interfaces';
 
 @Component({
   selector: 'ts-schedule',

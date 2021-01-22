@@ -18,4 +18,5 @@
   </mat-tab-group>
 
   <button mat-stroked-button color="primary" [routerLink]="['/task/list']">Back</button>
-  <button mat-stroked-button color="primary" [routerLink]="['/task/create', typeIndex, subTypeIndex]">Next</button>
+  <button mat-stroked-button color="primary" [disabled]='typeIndex == null || subTypeIndex == null' 
+  [routerLink]="['/task/create', typeIndex, subTypeIndex]">Next</button>

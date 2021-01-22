@@ -1,4 +1,4 @@
-import { Field } from "../task";
+import { Field } from "./task.model";
 
 export interface ITaskType {
     name: string;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import types, { ITaskSubType, ITaskType } from './task-types';
+import types, { ITaskSubType, ITaskType } from '../../models/task-types';
 
 @Component({
   templateUrl: './task-choose-type.component.html',
@@ -8,7 +8,7 @@ import types, { ITaskSubType, ITaskType } from './task-types';
 export class TaskChooseTypeComponent implements OnInit {
   private taskTypes = types;
   private allSubTypes = [];
-  
+
   private _subTypeFilter: string;
   public get subTypeFilter(): string {
     return this._subTypeFilter;
@@ -27,9 +27,9 @@ export class TaskChooseTypeComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskTypes.map(t => t.subTypes).forEach(subTypes => this.allSubTypes.push(subTypes));
-    this.selectedType=types[0];
+    this.selectType({ index: 0 })
   }
-  
+
   filterSubTypes(filter: string): ITaskType[] {
     filter = filter.toLocaleLowerCase();
     for (let i = 0; i < this.taskTypes.length; i++) {
@@ -54,5 +54,7 @@ export class TaskChooseTypeComponent implements OnInit {
 
   selectSubType(subType: ITaskSubType) {
     this.subTypeIndex = this.selectedType.subTypes.indexOf(subType);
+    console.log(this.typeIndex, this.subTypeIndex);
+
   }
 }

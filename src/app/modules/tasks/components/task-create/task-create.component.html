@@ -5,20 +5,23 @@
     <div class="input-name">
         <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput type="text" placeholder="Name" [(ngModel)]="task.name">
+            <input matInput type="text" placeholder="Name" required 
+            [(ngModel)]="task.name"
+            #name="ngModel">
         </mat-form-field>
     </div>
     <div class="input-description">
         <mat-form-field appearance="fill">
             <mat-label>Description</mat-label>
             <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="3"
-                cdkAutosizeMaxRows="6" [(ngModel)]="task.description"></textarea>
+                cdkAutosizeMaxRows="6" [(ngModel)]="task.description"
+                #description="ngModel"></textarea>
         </mat-form-field>
     </div>
     <ts-schedule (getSchedule)='setSchedule($event)'></ts-schedule>
     <button mat-stroked-button color="primary" [routerLink]="['/task/create']">Back</button>
     <button mat-stroked-button color="primary"
         [routerLink]="['/task/create', task.typeIndex, task.subTypeIndex, task.id]"
-        [disabled]='!task.schedule' (focus)="createTask()">Next</button>
+        *ngIf="name.valid && task.schedule != null " (focus)="createTask()">Next</button>
 
 </section>

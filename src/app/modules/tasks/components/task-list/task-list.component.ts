@@ -2,8 +2,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ITask } from '../task';
-import types from '../task-choose-type/task-types';
+import { ITask } from '../../models/task.model';
+import types from '../../models/task-types';
 
 @Component({
   templateUrl: './task-list.component.html',
