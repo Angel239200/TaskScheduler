@@ -27,6 +27,7 @@ export class TaskChooseTypeComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskTypes.map(t => t.subTypes).forEach(subTypes => this.allSubTypes.push(subTypes));
+    this.selectedType=types[0];
   }
   
   filterSubTypes(filter: string): ITaskType[] {
