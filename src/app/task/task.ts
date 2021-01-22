@@ -1,4 +1,4 @@
-import { IRepeatType } from "../shared/repeatTypes";
+import { ISchedule } from "../shared/schedule/schedule-interfaces";
 
 export interface ITask {
     id: number;
@@ -24,7 +24,3 @@ export class Task implements ITask {
 
 }
 
-export interface ISchedule {
-    dateTime: { date: string, time: string };
-    repeatType: IRepeatType;
-}

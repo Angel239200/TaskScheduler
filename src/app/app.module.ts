@@ -3,7 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './routing/app-routing.module';
-import { TaskModule } from './task/task.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+
+const material=[
+  MatButtonModule
+]
 
 @NgModule({
   declarations: [
@@ -11,8 +17,9 @@ import { TaskModule } from './task/task.module';
   ],
   imports: [
     BrowserModule,
-    TaskModule,
-    AppRoutingModule
+    AppRoutingModule,
+    material,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

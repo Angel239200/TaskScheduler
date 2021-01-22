@@ -1,23 +1,27 @@
-<div class="type-fields">
-    <h3>Task type fields</h3>
-    <div class="type-field" *ngFor="let field of typeFields">
+<mat-list role="list" *ngIf="typeFields">
+    <mat-label>Default fields</mat-label>
+    <mat-list-item role="listitem" *ngFor="let field of typeFields">
         {{ field.name }}
-    </div>
-</div>
-<div class="add-field">
-    <h3>Custom fields</h3>
-    <label for="fieldName">Field Name</label>
-    <input type="text" [(ngModel)]="fieldName">
-    <button type="button" class="btn btn-secondary" (click)="addField(fieldName)">Add Field</button>
-</div>
-<div class="added-fields">
-    <div class="field" *ngFor="let field of this.task.fields">
-        {{ field }} <button (click)="removeField(field)">Remove</button>
-    </div>
-</div>
-<div class="navigation-buttons-container">
-    <a class="btn btn-primary navigation-button"
-        [routerLink]="['/task/create',task.typeIndex,task.subTypeIndex]">Back</a>
-    <a class="btn btn-primary navigation-button" (click)="saveTask()" 
-    [routerLink]="['/tasks']">Save</a>
+    </mat-list-item>
+</mat-list>
+<mat-form-field class="input-add-field">
+    <mat-label>Field name</mat-label>
+    <input matInput type="text" [(ngModel)]="fieldName">
+    <button mat-stroked-button *ngIf="fieldName" matSuffix mat-icon-button aria-label="Clear" (click)="fieldName=''">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+<button mat-button color="primary" [disabled]="!fieldName" (click)="addField(fieldName)">Add Field</button>
+
+<mat-list role="list">
+    <mat-label>Task fields</mat-label>
+    <mat-list-item role="listitem" *ngFor="let field of this.task.fields">
+        {{ field }} <button mat-stroked-button color="warn" (click)="removeField(field)">Remove</button>
+    </mat-list-item>
+</mat-list>
+
+<div>
+    <button mat-stroked-button color="primary"
+        [routerLink]="['/task/create',task.typeIndex,task.subTypeIndex]">Back</button>
+    <button mat-stroked-button color="primary" (click)="saveTask()" [routerLink]="['/task/list']">Save</button>
 </div>

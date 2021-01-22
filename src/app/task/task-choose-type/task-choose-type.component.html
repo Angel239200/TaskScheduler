@@ -1,21 +1,21 @@
-<div class="task-choose-type">
-    <div class="col-md-4 search-sub-type">
-        <input type="text" [(ngModel)]="subTypeFilter" placeholder="Search for subtype">
-    </div>
-    <div class="type-container col-md-10">
-        <div class="type col-md-3" *ngFor="let type of filteredTypes" (click)='selectType(type)'>
-            {{ type.name }}
+<mat-form-field class="input-subtype-filter">
+    <mat-label>Filter by subtype</mat-label>
+    <input matInput type="text" [(ngModel)]="subTypeFilter">
+    <button mat-button *ngIf="subTypeFilter" matSuffix mat-icon-button aria-label="Clear" (click)="subTypeFilter=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  
+  <mat-tab-group dynamicHeight (selectedTabChange)="selectType($event)">
+    <mat-tab *ngFor="let type of filteredTypes" (click)='selectType(type)' [label]='type.name'>
+      <div class="box" *ngIf="selectedType">
+        <div class="example-small-box mat-elevation-z4" *ngFor="let subType of selectedType.subTypes"
+          (click)='selectSubType(subType)'>
+          {{ subType.name }}
         </div>
-        <div class="sub-types-container col-md-12" *ngIf="selectedType">
-            <div class="sub-type col-md-3" *ngFor="let subType of selectedType.subTypes"
-                (click)='selectSubType(subType)'>
-                {{ subType.name }}
-            </div>
-        </div>
-    </div>
-    <div class="navigation-buttons-container">
-        <a class="btn btn-primary navigation-button" [routerLink]="['/tasklists']">Back</a>
-        <a class="btn btn-primary navigation-button" [routerLink]="['/task/create',typeIndex,subTypeIndex]"
-            [ngClass]="(typeIndex == null || subTypeIndex == null) ? 'disabled' : '' ">Next</a>
-    </div>
-</div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <button mat-stroked-button color="primary" [routerLink]="['/task/list']">Back</button>
+  <button mat-stroked-button color="primary" [routerLink]="['/task/create', typeIndex, subTypeIndex]">Next</button>

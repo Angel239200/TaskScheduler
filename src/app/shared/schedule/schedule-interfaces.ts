@@ -7,15 +7,18 @@ export interface IRepeatType {
     endWithinTime: string;
 }
 
+export interface ISchedule {
+    dateTime: string;
+    repeatType: IRepeatType;
+}
+
 export class RepeatType implements IRepeatType {
     constructor(public name: string,
         public repeatTimes: number,
         public repeatTimesType: string,
         public repeatDays: string[] = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'],
         public startWithinTime: string = null,
-        public endWithinTime: string = null) {
-
-    }
+        public endWithinTime: string = null) { }
 }
 
 const repeatTypes: RepeatType[] = [

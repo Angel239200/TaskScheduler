@@ -1,8 +1,9 @@
 <div class="container">
   <header class="app-header">
-    <a [routerLink]="['/task/create']">
-       <button type="button" class="btn btn-secondary">Schedule Task</button>
-      </a>
+    <button mat-raised-button color="primary"
+    [routerLink]="['/task/create']">Schedule Task</button>
+    
+    <button [routerLink]="['/demo']">DEMO</button>
   </header>
   <div class="content">
     <router-outlet></router-outlet>

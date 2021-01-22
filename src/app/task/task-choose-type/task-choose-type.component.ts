@@ -46,9 +46,9 @@ export class TaskChooseTypeComponent implements OnInit {
     return this.taskTypes;
   }
 
-  selectType(type: ITaskType) {
-    this.selectedType = type;
-    this.typeIndex = this.taskTypes.indexOf(type);
+  selectType(tab) {
+    this.selectedType = types[tab.index];
+    this.typeIndex = this.taskTypes.indexOf(this.selectedType);
   }
 
   selectSubType(subType: ITaskSubType) {

@@ -14,10 +14,7 @@ export class TaskConfigureFieldsGuard implements CanActivate {
     let taskId = +route.paramMap.get("taskId");
     if (isNaN(taskId) || taskId < 1) {
       alert("Invalid task");
-
-      let typeId = +route.paramMap.get('type');
-      let subTypeId = +route.paramMap.get('subtype');
-      this.router.navigate(['/task/create', typeId, subTypeId]);
+      this.router.navigate(['/task/create']);
 
       return false;
     }

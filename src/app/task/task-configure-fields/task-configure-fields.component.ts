@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ITask } from '../task';
 import types, { Field } from '../task-choose-type/task-types';
+import { TaskService } from '../task-service/task.service';
 
 @Component({
   templateUrl: './task-configure-fields.component.html',
@@ -12,7 +13,7 @@ export class TaskConfigureFieldsComponent implements OnInit {
   public task: ITask;
   public typeFields: Field[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private taskService: TaskService) { }
 
   ngOnInit(): void {
     if (!localStorage.getItem('tasks')) {
@@ -45,14 +46,6 @@ export class TaskConfigureFieldsComponent implements OnInit {
   }
 
   saveTask() {
-    let tasks = [];
-    if (localStorage.getItem('tasks')) {
-      tasks = JSON.parse(localStorage.getItem('tasks'));
-
-      let taskIndex = tasks.findIndex(t => t.id == this.task.id);
-      tasks[taskIndex] = this.task;
-    }
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.taskService.updateTask(this.task);
   }
 }

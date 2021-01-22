@@ -1,55 +1,61 @@
-<div class="schedule-container">
-    <header>
-        <h4>Schedule</h4>
-    </header>
-    <div class="schedule-content">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>Date and Time</label>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="date" [(ngModel)]="dateTime.date">
-                        <input type="time" [(ngModel)]="dateTime.time">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Repeat: </label>
-                <select [(ngModel)]="selectedTypeName">
-                    <option *ngFor="let type of repeatTypes" [value]="type.name">
-                        {{ type.name }}
-                    </option>
-                </select>
-            </div>
-            <div class="custom-type" *ngIf="isCustomType">
-                <div class="times">
-                    Repeat Times:
-                    <input type="number" class="col-md-2" min="1" [(ngModel)]="selectedType.repeatTimes">
-                    <select class="repeat-times-type-list" [(ngModel)]="selectedType.repeatTimesType">
-                        <option *ngFor="let type of repeatTimesTypes" [value]="type">
-                            {{ type }}
-                        </option>
-                    </select>
-                </div>
-                <div class="select-days">
-                    <select multiple [(ngModel)]="selectedType.repeatDays">
-                        <option *ngFor="let day of weekDays" [value]="day">
-                            {{ day }}
-                        </option>
-                    </select>
-                </div>
-                <div class="selectTimeRange">
-                    <input type="checkbox" checked [(ngModel)]="anyTimeWithinChecked" id="any-time-within">
-                    <label for="any-time-within" class="any-time-within">Run any within the hours of</label>
-                    <span *ngIf="anyTimeWithinChecked">
-                        <input type="time" [(ngModel)]="selectedType.startWithinTime">
-                        <input type="time" [(ngModel)]="selectedType.endWithinTime">
-                    </span>
-                </div>
-            </div>
-            <div>
-                <button (click)='onScheduleSave()'>Save Schedule</button>
-            </div>
-        </div>
+<section>
+    <div class="input-datetime">
+        <mat-form-field appearance="fill">
+            <input matInput type="datetime-local" placeholder="Date and time" required [(ngModel)]="dateTime"
+                (ngModelChange)='saveSchedule()'>
+        </mat-form-field>
     </div>
-</div>
+
+    <div class="input-repeat-type">
+        <mat-form-field appearance="fill">
+            <mat-label>Repeat</mat-label>
+            <mat-select [(ngModel)]="selectedType.name" (selectionChange)="onTypeSelect($event.value)"
+                (ngModelChange)='saveSchedule()'>
+                <mat-option *ngFor="let type of repeatTypes" [value]="type.name">
+                    {{ type.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</section>
+
+<section *ngIf="isCustomType" class="input-custom-type">
+    <div class="input-repeat-times">
+        <mat-label>Repeat Times: </mat-label>
+        <mat-form-field appearance="fill">
+            <input matInput min="1" type='number' [(ngModel)]="selectedType.repeatTimes"
+                (ngModelChange)='saveSchedule()'>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-select [(ngModel)]="selectedType.repeatTimesType" (ngModelChange)='saveSchedule()'>
+                <mat-option *ngFor="let type of repeatTimesTypes" [value]="type">
+                    {{ type }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="input-repeat-days">
+        <mat-form-field appearance="fill">
+            <mat-select multiple [(ngModel)]="selectedType.repeatDays" (ngModelChange)='saveSchedule()'>
+                <mat-option *ngFor="let day of weekDays" [value]="day">
+                    {{ day }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="input-any-time-within">
+        <mat-checkbox [(ngModel)]="anyTimeWithinChecked" (ngModelChange)='saveSchedule()'>
+            Run any within the hours of
+        </mat-checkbox>
+        <section *ngIf="anyTimeWithinChecked">
+            <mat-form-field appearance="fill">
+                <input matInput type="time" [(ngModel)]="selectedType.startWithinTime" (ngModelChange)='saveSchedule()'>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput type="time" [(ngModel)]="selectedType.endWithinTime" (ngModelChange)='saveSchedule()'>
+            </mat-form-field>
+        </section>
+    </div>
+</section>
