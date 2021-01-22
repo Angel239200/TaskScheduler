@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ISchedule } from 'src/app/shared/schedule/schedule-interfaces';
 import { ITask, Task } from '../task';
-import { TaskService } from '../task-service/task.service';
+import { TaskService } from '../../services/task-service/task.service';
 
 @Component({
   templateUrl: './task-create.component.html',

@@ -7,7 +7,7 @@ export interface ITask {
     name: string;
     description: string;
     schedule: ISchedule;
-    fields: string[];
+    fields: Field[];
     createdOn: Date;
 }
 
@@ -19,8 +19,10 @@ export class Task implements ITask {
     public name: string;
     public description: string;
     public schedule: ISchedule;
-    public fields: string[] = [];
+    public fields: Field[] = [];
     public createdOn: Date;
-
 }
 
+export class Field {
+    constructor(public name: string, public value: string = null) { }
+}

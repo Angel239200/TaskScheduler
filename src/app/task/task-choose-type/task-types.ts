@@ -1,3 +1,5 @@
+import { Field } from "../task";
+
 export interface ITaskType {
     name: string;
     subTypes: ITaskSubType[];
@@ -7,10 +9,6 @@ export class TaskType implements ITaskType {
     constructor(
         public name: string,
         public subTypes: ITaskSubType[]) { }
-}
-
-export class Field {
-    constructor(public name: string, public value: string = null) { }
 }
 
 export interface ITaskSubType {

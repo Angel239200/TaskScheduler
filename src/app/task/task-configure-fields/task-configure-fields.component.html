@@ -16,7 +16,7 @@
 <mat-list role="list">
     <mat-label>Task fields</mat-label>
     <mat-list-item role="listitem" *ngFor="let field of this.task.fields">
-        {{ field }} <button mat-stroked-button color="warn" (click)="removeField(field)">Remove</button>
+        {{ field.name }} <button mat-stroked-button color="warn" (click)="removeField(field.name)">Remove</button>
     </mat-list-item>
 </mat-list>
 

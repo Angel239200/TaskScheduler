@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ITask } from '../task';
-import types, { Field } from '../task-choose-type/task-types';
-import { TaskService } from '../task-service/task.service';
+import { Field, ITask } from '../task';
+import types from '../task-choose-type/task-types';
+import { TaskService } from '../../services/task-service/task.service';
 
 @Component({
   templateUrl: './task-configure-fields.component.html',
@@ -32,17 +32,17 @@ export class TaskConfigureFieldsComponent implements OnInit {
   }
 
   addField(fieldName: string) {
-    if (this.task.fields.includes(fieldName)) {
+    if (this.task.fields.find(f=>f.name==fieldName)) {
       alert("The field exists");
 
       return;
     }
 
-    this.task.fields = [...this.task.fields, fieldName]
+    this.task.fields = [...this.task.fields, new Field(fieldName)]
   }
 
   removeField(fieldName: string) {
-    this.task.fields = this.task.fields.filter((f: string) => f !== fieldName);
+    this.task.fields = this.task.fields.filter((f: Field) => f.name !== fieldName);
   }
 
   saveTask() {
